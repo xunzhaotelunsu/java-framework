@@ -1,26 +1,19 @@
 package com.jiegeshe.javaframwork.patternproxy.staticproxy;
 
 import com.jiegeshe.javaframwork.patternproxy.RealSubject;
-import com.jiegeshe.javaframwork.patternproxy.Subject;
 
 /**
  * @author stone
  * @version 1.0.0
  * @since 1.0.0 (2018-09-17)
  */
-public class StaticProxy implements Subject {
-
-    private RealSubject realSubject;
-
-    StaticProxy(RealSubject realSubject) {
-        this.realSubject = realSubject;
-    }
+public class InheritStaticProxy extends RealSubject {
 
     @Override
     public void doSomething() {
         System.out.println("before static proxy");
         try {
-            this.realSubject.doSomething();
+            super.doSomething();
         } catch (Exception ex) {
             System.out.println("ex: " + ex.getMessage());
             throw ex;
@@ -30,10 +23,10 @@ public class StaticProxy implements Subject {
     }
 
     @Override
-    public void doSomething2() {
+    public void hello(String name) {
         System.out.println("before static proxy");
         try {
-            this.realSubject.doSomething2();
+            super.hello(name);
         } catch (Exception ex) {
             System.out.println("ex: " + ex.getMessage());
             throw ex;

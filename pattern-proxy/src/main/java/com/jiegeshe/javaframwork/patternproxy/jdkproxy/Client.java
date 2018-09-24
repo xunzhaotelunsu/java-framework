@@ -14,11 +14,11 @@ public class Client {
 
     public static void main(String[] args) {
         System.getProperties().put("sun.misc.ProxyGenerator.saveGeneratedFiles", "true");
-        Subject subject = (Subject) Proxy.newProxyInstance(
+        Subject proxySubject = (Subject) Proxy.newProxyInstance(
                 Client.class.getClassLoader(),
                 new Class[] { Subject.class },
                 new JdkProxySubject(new RealSubject()));
-        subject.doSomething();
-        subject.doSomething2();
+        proxySubject.doSomething();
+        proxySubject.hello("stone");
     }
 }

@@ -11,8 +11,12 @@ import com.jiegeshe.javaframwork.patternproxy.Subject;
 public class Client {
 
     public static void main(String[] args){
-        Subject subject = new StaticProxy(new RealSubject());
-        subject.doSomething();
-        subject.doSomething2();
+        RealSubject proxySubject = new InheritStaticProxy();
+        proxySubject.doSomething();
+        proxySubject.hello("stone");
+        System.out.println("----------------");
+        Subject proxySubject2 = new InterfaceStaticProxy(new RealSubject());
+        proxySubject2.doSomething();
+        proxySubject2.hello("stone");
     }
 }

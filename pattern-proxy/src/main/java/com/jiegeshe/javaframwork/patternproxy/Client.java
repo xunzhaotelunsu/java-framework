@@ -10,6 +10,6 @@ public class Client {
     public static void main(String[] args) {
         Subject subject = new RealSubject();
         subject.doSomething();
-        subject.doSomething2();
+        subject.hello("stone");
     }
 }

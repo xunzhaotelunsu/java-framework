@@ -9,6 +9,6 @@ public interface Subject {
 
     void doSomething();
 
-    void doSomething2();
+    void hello(String name);
 
 }

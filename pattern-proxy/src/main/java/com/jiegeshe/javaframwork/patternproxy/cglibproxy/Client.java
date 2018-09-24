@@ -1,5 +1,7 @@
 package com.jiegeshe.javaframwork.patternproxy.cglibproxy;
 
+// import org.springframework.cglib.proxy.Enhancer;
+
 import org.springframework.cglib.proxy.Enhancer;
 
 import com.jiegeshe.javaframwork.patternproxy.RealSubject;
@@ -16,8 +18,15 @@ public class Client {
         Enhancer enhancer = new Enhancer();
         enhancer.setSuperclass(RealSubject.class);
         enhancer.setCallback(new CglibProxy());
-        Subject subject = (Subject) enhancer.create();
-        subject.doSomething();
-        subject.doSomething2();
+        Subject proxySubject = (Subject) enhancer.create();
+        proxySubject.doSomething();
+        System.out.println("----------------");
+        proxySubject.hello("stone");
+        System.out.println("----------------");
+        System.out.println(proxySubject.toString());
+        System.out.println("----------------");
+        System.out.println(proxySubject.hashCode());
+        System.out.println("----------------");
+        System.out.println(proxySubject.getClass());
     }
 }
